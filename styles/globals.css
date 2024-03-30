@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: manrope-regular;
+  src: url(/Manrope-Regular.ttf);
+}
+
+@font-face {
+  font-family: manrope-light;
+  src: url(/Manrope-Light.ttf);
+}
+
+@font-face {
+  font-family: manrope-medium;
+  src: url(/Manrope-Medium.ttf);
+}
+@font-face {
+  font-family: manrope-semibold;
+  src: url(/Manrope-SemiBold.ttf);
+}
+@font-face {
+  font-family: manrope-bold;
+  src: url(/Manrope-Bold.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: manrope-regular !important;
+}
+
+.font-medium {
+  font-family: manrope-medium !important;
+}
+.font-light {
+  font-family: manrope-light !important;
+}
+.font-semibold {
+  font-family: manrope-semibold !important;
+}
+.font-bold {
+  font-family: manrope-bold !important;
+}
+
+
+.gr{
+  background: linear-gradient(225deg, #A7A4FF 0%, #67D5A2 48.44%, #FFFE96 100%);
+
+}
