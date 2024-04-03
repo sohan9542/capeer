@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 const Faq = () => {
-  const [active, setActive] = useState(2);
+  const [active, setActive] = useState<number>(2);
 
   return (
     <div className="py-[50px] lg:py-[150px] w-full">
@@ -92,7 +92,7 @@ const Faq = () => {
         >
           <div className="flex items-center  justify-between">
             <p className="text-[#2A2343] text-[16px] lg:text-[24px] font-semibold">
-            How do I buy Bitcoin on CaPeerBara?
+              How do I buy Bitcoin on CaPeerBara?
             </p>
             {active === 2 ? (
               <div className="w-[29px] cursor-pointer">
@@ -163,7 +163,7 @@ const Faq = () => {
         >
           <div className="flex items-center  justify-between">
             <p className="text-[#2A2343] text-[16px] lg:text-[24px] font-semibold">
-            Where is CaPeerBara based?
+              Where is CaPeerBara based?
             </p>
             {active === 3 ? (
               <div className="w-[29px] cursor-pointer">
@@ -234,7 +234,7 @@ const Faq = () => {
         >
           <div className="flex items-center  justify-between">
             <p className="text-[#2A2343] text-[16px] lg:text-[24px] font-semibold">
-            What products does CaPeerBara provide?
+              What products does CaPeerBara provide?
             </p>
             {active === 4 ? (
               <div className="w-[29px] cursor-pointer">
@@ -305,7 +305,7 @@ const Faq = () => {
         >
           <div className="flex items-center  justify-between">
             <p className="text-[#2A2343] text-[16px] lg:text-[24px] font-semibold">
-            How do I buy Bitcoin on CaPeerBara?
+              How do I buy Bitcoin on CaPeerBara?
             </p>
             {active === 5 ? (
               <div className="w-[29px] cursor-pointer">

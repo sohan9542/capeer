@@ -1,79 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { useRouter } from "next/router";
 
-import { Fragment, useState } from "react";
-import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
+import { useState } from "react";
+import { Dialog } from "@headlessui/react";
 import {
-  ArrowPathIcon,
   Bars3Icon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
+
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import {
-  ChevronDownIcon,
-  PhoneIcon,
-  PlayCircleIcon,
-} from "@heroicons/react/20/solid";
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
-const products = [
-  {
-    name: "#1 Tradezella Review",
-    description: "Get a better understanding of your PNL",
-    href: "/tradezella",
-    icon: ChartPieIcon,
-  },
-  {
-    name: "#2 TraderSync Review",
-    description: "Track your thoughts & ideas",
-    href: "/tradersync",
-    icon: CursorArrowRaysIcon,
-  },
-  {
-    name: "#3 TraderVue Review",
-    description: "Track your progress",
-    href: "/tradervue",
-    icon: FingerPrintIcon,
-  },
-  {
-    name: "Broker Compatibility",
-    description: "Auto sync with your broker",
-    href: "/broker-compatibility",
-    icon: SquaresPlusIcon,
-  },
-];
-const callsToAction = [
-  { name: "Watch demo", href: "/#trademanagement", icon: PlayCircleIcon },
-];
+
 
 const Navbar = () => {
-  const [toggle, setToggle] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const ActiveLink = ({ href, children }) => {
-    const router = useRouter();
-
-    // Check if the current route matches the href prop
-    const isActive = router.pathname === href;
-
-    // Define the class names based on whether the link is active or not
-    const className = isActive
-      ? "text-[14px] text-[#131316] flex items-center gap-1 "
-      : "text-[14px] text-[#09090B] opacity-60 flex items-center gap-1 ";
-
-    return (
-      <Link className={className} href={href}>
-        {children}
-      </Link>
-    );
-  };
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   return (
     <header>
       <nav className=" border-b py-3 ">

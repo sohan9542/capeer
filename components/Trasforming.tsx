@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 const Trasforming = () => {
+  const [active, setActive] = useState<number>(2);
+  const stringList: string[] = [
+    "  Connect",
+    "  Amount",
+    "Send money",
+    " Verification",
+    "  Claim crypto",
+  ];
+
   return (
     <div className="py-[50px] lg:py-[150px] bg-[#151E2E] w-full">
       <div className="lg:max-w-[1224px] mx-auto">
@@ -24,26 +33,31 @@ const Trasforming = () => {
               Transforming Digital <br /> Assets with Innovation!
             </h1>
             <div className="my-[20px] border border-[#3A465A] flex-wrap flex items-center p-[15px] lg:p-[5px] rounded-[12px]">
-              <button className="text-white text-[14px] px-[16px] lg:px-[24px] py-[10px] rounded-[8px]">
-                Connect
-              </button>
-              <button className="text-white text-[14px] px-[16px] lg:px-[24px] py-[10px] rounded-[8px]">
-                Amount
-              </button>
-              <button className="text-white text-[14px] px-[16px] lg:px-[24px] py-[10px] bg-[#7B76FF] rounded-[8px]">
-                Send money
-              </button>
-              <button className="text-white text-[14px] px-[16px] lg:px-[24px] py-[10px] rounded-[8px]">
-                Verification
-              </button>
-              <button className="text-white text-[14px] px-[16px] lg:px-[24px] py-[10px] rounded-[8px]">
-                Claim crypto
-              </button>
+
+
+              {stringList.map((item, ind) => (
+                <button
+                onClick={()=>setActive(ind)}
+                  className={
+                    active === ind
+                      ? "text-white text-[14px] px-[16px] lg:px-[24px] py-[10px] bg-[#7B76FF] rounded-[8px]"
+                      : "text-white text-[14px] px-[16px] lg:px-[24px] py-[10px] rounded-[8px]"
+                  }
+                >
+                 {item}
+                </button>
+              ))}
             </div>
             <h1 className="text-[24px] text-[#A4A1FF] pt-2 font-[500] ">
               Lorem ipsum dolor{" "}
             </h1>
-            <p className="mt-2 text-[16px] text-[#98A2B2]">Lorem ipsum dolor sit amet consectetur. Neque sed aliquam commodo pellentesque turpis vel vulputate. Amet mauris odio nam eu neque volutpat egestas at ultrices. Ipsum nibh id tincidunt euismod aliquam imperdiet sed quisque aliquet. In sit maecenas diam tempus sed ullamcorper turpis.</p>
+            <p className="mt-2 text-[16px] text-[#98A2B2]">
+              Lorem ipsum dolor sit amet consectetur. Neque sed aliquam commodo
+              pellentesque turpis vel vulputate. Amet mauris odio nam eu neque
+              volutpat egestas at ultrices. Ipsum nibh id tincidunt euismod
+              aliquam imperdiet sed quisque aliquet. In sit maecenas diam tempus
+              sed ullamcorper turpis.
+            </p>
           </div>
         </div>
       </div>
