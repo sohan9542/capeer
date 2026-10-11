@@ -10,8 +10,8 @@ const Care = () => {
           CaPeerBara. We care about your privacy!
         </h1>
         <div className="mt-[50px] grid grid-cols-1 lg:grid-cols-3 gap-y-12 gap-x-4">
-          {PRIVACY_FEATURES.map((feature) => (
-            <div key={`${feature.title}-${feature.description}`}>
+          {PRIVACY_FEATURES.map((feature, index) => (
+            <div key={`${feature.title}-${index}`}>
               <div className="w-[64px]">
                 <Image
                   width={207}
