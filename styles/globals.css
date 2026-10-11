@@ -45,8 +45,6 @@
   font-family: manrope-bold !important;
 }
 
-
-.gr{
-  background: linear-gradient(225deg, #A7A4FF 0%, #67D5A2 48.44%, #FFFE96 100%);
-
+.gr {
+  background: linear-gradient(225deg, #a7a4ff 0%, #67d5a2 48.44%, #fffe96 100%);
 }

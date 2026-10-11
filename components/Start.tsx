@@ -14,7 +14,13 @@ const Start = () => {
             </button>
           </div>
           <div className="w-full lg:pl-[30px] lg:h-[464px]">
-          <Image width={1307} height={1307} className="object-cover rounded-[8px] w-full h-full" alt="" src={"/hero.jpg"} />
+            <Image
+              width={1307}
+              height={1307}
+              className="object-cover rounded-[8px] w-full h-full"
+              alt=""
+              src={"/hero.jpg"}
+            />
           </div>
         </div>
       </div>

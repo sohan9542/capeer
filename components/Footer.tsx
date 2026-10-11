@@ -155,10 +155,10 @@ const Footer = () => {
                 Legal
               </Link>
               <Link href={"/tems"} className="text-[14px]  text-[#6A7489]">
-              Terms & Conditions
+                Terms & Conditions
               </Link>
               <Link href={"/cookie"} className="text-[14px]  text-[#6A7489]">
-              Cookie Policy
+                Cookie Policy
               </Link>
             </div>
             <p className="text-[13px] text-[#5E5F6E]">

@@ -33,18 +33,17 @@ const Trasforming = () => {
               Transforming Digital <br /> Assets with Innovation!
             </h1>
             <div className="my-[20px] border border-[#3A465A] flex-wrap flex items-center p-[15px] lg:p-[5px] rounded-[12px]">
-
-
               {stringList.map((item, ind) => (
                 <button
-                onClick={()=>setActive(ind)}
+                  key={item}
+                  onClick={() => setActive(ind)}
                   className={
                     active === ind
                       ? "text-white text-[14px] px-[16px] lg:px-[24px] py-[10px] bg-[#7B76FF] rounded-[8px]"
                       : "text-white text-[14px] px-[16px] lg:px-[24px] py-[10px] rounded-[8px]"
                   }
                 >
-                 {item}
+                  {item}
                 </button>
               ))}
             </div>

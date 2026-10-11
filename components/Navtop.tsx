@@ -8,19 +8,16 @@ const Navtop = () => {
         We compare the best trading journals in 2024{" "}
       </p>
       <Link
-      href={'/trading-journal-comparisons'}
+        href={"/trading-journal-comparisons"}
         className=" font-medium text-white text-[13px] group relative pl-3 flex items-center"
       >
         Read more
         <div className="transition group-hover:translate-x-1">
-        <MdArrowRight className="w-5 h-5"/>
+          <MdArrowRight className="w-5 h-5" />
         </div>
-      
       </Link>
     </div>
   );
 };
-
-
 
 export default Navtop;

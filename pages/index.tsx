@@ -15,7 +15,7 @@ export default function Home() {
         <Hero />
         <Company />
         <Care />
-       
+
         {/* 
         
        
@@ -24,12 +24,10 @@ export default function Home() {
       </div>
       <Transforming />
       <div className="w-full px-5 lg:px-0">
-      <Faq />
-    
-        </div>
-        <Start />
-        <Footer />
-    
+        <Faq />
+      </div>
+      <Start />
+      <Footer />
     </>
   );
 }
