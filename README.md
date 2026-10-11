@@ -1,40 +1,89 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# CaPeer (CaPeerBara)
 
-## Getting Started
+Marketing landing page for **CaPeerBara**, a peer-to-peer crypto trading concept site. Built with Next.js (Pages Router), TypeScript, and Tailwind CSS.
 
-First, run the development server:
+**Live demo:** [https://capeer.vercel.app](https://capeer.vercel.app)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+> Portfolio / concept UI by [Sohanur Rahman](https://github.com/sohan9542). This repository is a front-end presentation layer — not a production trading platform.
+
+## Features
+
+- Responsive landing page with hero, partner strip, privacy highlights, “how it works” steps, FAQ accordion, CTA, and footer
+- Mobile navigation drawer (Headless UI)
+- Typed API routes under `/api/*` with method validation
+- ESLint, Prettier, Vitest, and GitHub Actions CI
+
+## Tech stack
+
+| Area      | Choice                                  |
+| --------- | --------------------------------------- |
+| Framework | Next.js 14 (Pages Router)               |
+| Language  | TypeScript                              |
+| Styling   | Tailwind CSS, custom Manrope font faces |
+| UI        | Headless UI, Heroicons, `next/image`    |
+| Testing   | Vitest                                  |
+| CI        | GitHub Actions                          |
+| Hosting   | Vercel (`capeer.vercel.app`)            |
+
+## Architecture
+
+```
+pages/           Next.js routes and API handlers
+  index.tsx      Landing page composition
+  api/           Lightweight JSON/HTML endpoints
+components/      Presentational UI sections
+lib/             Shared content, helpers, and unit tests
+public/          Static assets (images, icons, fonts)
+styles/          Global CSS and font-face rules
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Content for FAQ items, privacy features, and nav/footer links lives in `lib/` so components stay thin and reusable. The home page composes section components; there is no database or auth layer in this repo.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Local setup
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+**Requirements:** Node.js 20+ and npm.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+git clone https://github.com/sohan9542/capeer.git
+cd capeer
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Open [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+## Environment variables
 
-To learn more about Next.js, take a look at the following resources:
+See [`.env.example`](./.env.example). The app does not currently require any environment variables to build or run locally.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+| Script                 | Description                  |
+| ---------------------- | ---------------------------- |
+| `npm run dev`          | Start the development server |
+| `npm run build`        | Production build             |
+| `npm run start`        | Serve the production build   |
+| `npm run lint`         | Run ESLint (Next.js config)  |
+| `npm run format`       | Format with Prettier         |
+| `npm run format:check` | Check Prettier formatting    |
+| `npm run typecheck`    | TypeScript `tsc --noEmit`    |
+| `npm test`             | Run Vitest unit tests        |
 
-## Deploy on Vercel
+## Project structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+.
+├── .github/workflows/ci.yml
+├── components/          # Navbar, Hero, FAQ, Footer, etc.
+├── lib/                 # FAQ/features/nav data + helpers/tests
+├── pages/               # Routes + API
+├── public/              # Static media and font files
+├── styles/globals.css
+├── package.json
+└── README.md
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Notes
+
+- Nav and footer links (for example `/buy-crypto`, `/about`) are present in the UI; corresponding pages are not implemented in this repo yet.
+- Placeholder marketing copy and stats on the landing page are conceptual and should not be read as real product metrics.
