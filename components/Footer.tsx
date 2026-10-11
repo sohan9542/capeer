@@ -1,6 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  FOOTER_BUY_LINKS,
+  FOOTER_SELL_LINKS,
+  SOCIAL_LINKS,
+} from "@/lib/navigation";
 
 const Footer = () => {
   return (
@@ -17,66 +22,45 @@ const Footer = () => {
           <div className=" lg:col-span-3 grid gap-5 lg:gap-0 grid-cols-1 lg:grid-cols-4">
             <div className="flex flex-col items-start gap-3">
               <p className="text-[14px] text-[#98A2B2] pb-2">Buy Crypto</p>
-              <Link
-                href={"/buy-bnb"}
-                className="text-[16px] flex items-center gap-3 font-[600] text-[#6A7489]"
-              >
-                Buy BNB{" "}
-                <div className="px-3 py-[3px] rounded-[23px] font-medium bg-[#EBEBFF] text-[#615CFF] text-[12px]">
-                  New
-                </div>
-              </Link>
-              <Link
-                href={"/buy-usdt"}
-                className="text-[16px] font-[600] text-[#6A7489]"
-              >
-                Buy USDT
-              </Link>
-              <Link
-                href={"/buy-ada"}
-                className="text-[16px] font-[600] text-[#6A7489]"
-              >
-                Buy ADA
-              </Link>
-              <Link
-                href={"/buy-matic"}
-                className="text-[16px] font-[600] text-[#6A7489]"
-              >
-                Buy MATIC
-              </Link>
-
-              {/* <Link href={'/trading-webull'} className='text-[13px] text-[#131316]'>Stock Trade Tracker</Link>
-          <Link href={'/trading-webull'} className='text-[13px] text-[#131316]'>Stock Trading Dashboard</Link> */}
+              {FOOTER_BUY_LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={
+                    link.badge
+                      ? "text-[16px] flex items-center gap-3 font-[600] text-[#6A7489]"
+                      : "text-[16px] font-[600] text-[#6A7489]"
+                  }
+                >
+                  {link.label}{" "}
+                  {link.badge ? (
+                    <div className="px-3 py-[3px] rounded-[23px] font-medium bg-[#EBEBFF] text-[#615CFF] text-[12px]">
+                      {link.badge}
+                    </div>
+                  ) : null}
+                </Link>
+              ))}
             </div>
             <div className="flex flex-col items-start gap-3">
               <p className="text-[14px] text-[#98A2B2] pb-2">Sell Crypto</p>
-              <Link
-                href={"/sell-bnb"}
-                className="text-[16px] flex items-center gap-3 font-[600] text-[#6A7489]"
-              >
-                Sell BNB{" "}
-                <div className="px-3 py-[3px] rounded-[23px] font-medium bg-[#EBEBFF] text-[#615CFF] text-[12px]">
-                  New
-                </div>
-              </Link>
-              <Link
-                href={"/sell-usdt"}
-                className="text-[16px] font-[600] text-[#6A7489]"
-              >
-                Sell USDT
-              </Link>
-              <Link
-                href={"/sell-ada"}
-                className="text-[16px] font-[600] text-[#6A7489]"
-              >
-                Sell ADA
-              </Link>
-              <Link
-                href={"/sell-matic"}
-                className="text-[16px] font-[600] text-[#6A7489]"
-              >
-                Sell MATIC
-              </Link>
+              {FOOTER_SELL_LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={
+                    link.badge
+                      ? "text-[16px] flex items-center gap-3 font-[600] text-[#6A7489]"
+                      : "text-[16px] font-[600] text-[#6A7489]"
+                  }
+                >
+                  {link.label}{" "}
+                  {link.badge ? (
+                    <div className="px-3 py-[3px] rounded-[23px] font-medium bg-[#EBEBFF] text-[#615CFF] text-[12px]">
+                      {link.badge}
+                    </div>
+                  ) : null}
+                </Link>
+              ))}
             </div>
             <div className="flex flex-col items-start gap-3">
               <p className="text-[14px] text-[#98A2B2] pb-2">Company</p>
@@ -92,56 +76,23 @@ const Footer = () => {
                 Start Trading
               </button>
               <div className="mt-[40px] flex items-center justify-center gap-3">
-                <a href="http://" target="_blank" rel="noopener noreferrer">
-                  <div className="w-[40px]">
-                    <Image
-                      width={137}
-                      height={137}
-                      alt=""
-                      src={"/linkedin.svg"}
-                    />
-                  </div>
-                </a>
-                <a href="http://" target="_blank" rel="noopener noreferrer">
-                  <div className="w-[40px]">
-                    <Image
-                      width={137}
-                      height={137}
-                      alt=""
-                      src={"/twitter.svg"}
-                    />
-                  </div>
-                </a>
-                <a href="http://" target="_blank" rel="noopener noreferrer">
-                  <div className="w-[40px]">
-                    <Image
-                      width={137}
-                      height={137}
-                      alt=""
-                      src={"/instagram.svg"}
-                    />
-                  </div>
-                </a>
-                <a href="http://" target="_blank" rel="noopener noreferrer">
-                  <div className="w-[40px]">
-                    <Image
-                      width={137}
-                      height={137}
-                      alt=""
-                      src={"/discord.svg"}
-                    />
-                  </div>
-                </a>
-                <a href="http://" target="_blank" rel="noopener noreferrer">
-                  <div className="w-[40px]">
-                    <Image
-                      width={137}
-                      height={137}
-                      alt=""
-                      src={"/telegram.svg"}
-                    />
-                  </div>
-                </a>
+                {SOCIAL_LINKS.map((social) => (
+                  <a
+                    key={social.icon}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <div className="w-[40px]">
+                      <Image
+                        width={137}
+                        height={137}
+                        alt=""
+                        src={social.icon}
+                      />
+                    </div>
+                  </a>
+                ))}
               </div>
             </div>
           </div>

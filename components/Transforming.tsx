@@ -1,14 +1,9 @@
 import React, { useState } from "react";
 import Image from "next/image";
-const Trasforming = () => {
+import { HOW_IT_WORKS_STEPS } from "@/lib/features";
+
+const Transforming = () => {
   const [active, setActive] = useState<number>(2);
-  const stringList: string[] = [
-    "  Connect",
-    "  Amount",
-    "Send money",
-    " Verification",
-    "  Claim crypto",
-  ];
 
   return (
     <div className="py-[50px] lg:py-[150px] bg-[#151E2E] w-full">
@@ -33,7 +28,7 @@ const Trasforming = () => {
               Transforming Digital <br /> Assets with Innovation!
             </h1>
             <div className="my-[20px] border border-[#3A465A] flex-wrap flex items-center p-[15px] lg:p-[5px] rounded-[12px]">
-              {stringList.map((item, ind) => (
+              {HOW_IT_WORKS_STEPS.map((item, ind) => (
                 <button
                   key={item}
                   onClick={() => setActive(ind)}
@@ -64,4 +59,4 @@ const Trasforming = () => {
   );
 };
 
-export default Trasforming;
+export default Transforming;

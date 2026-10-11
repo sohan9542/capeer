@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
+import { FAQ_ITEMS, toggleFaqIndex } from "@/lib/faq";
+
 const Faq = () => {
   const [active, setActive] = useState<number>(2);
 
@@ -9,361 +11,68 @@ const Faq = () => {
         <h1 className="text-[#2A2343] pb-10 text-[40px] leading-[44px] lg:text-[48px] font-[600] text-center">
           Questions? Look here.
         </h1>
-        <div
-          onClick={() => {
-            if (active === 1) {
-              setActive(0);
-            } else {
-              setActive(1);
-            }
-          }}
-          className=" border-t cursor-pointer py-[15px]  "
-        >
-          <div className="flex items-center  justify-between">
-            <p className="text-[#2A2343] text-[16px] lg:text-[24px] font-semibold">
-              What products does CaPeerBara provide?
-            </p>
-            {active === 1 ? (
-              <div className="w-[29px] cursor-pointer">
-                <Image
-                  width={207}
-                  height={107}
-                  className="object-cover"
-                  alt=""
-                  src={"/minus.svg"}
-                />
+        {FAQ_ITEMS.map((item, index) => {
+          const isOpen = active === item.id;
+          const isLast = index === FAQ_ITEMS.length - 1;
+
+          return (
+            <div
+              key={item.id}
+              onClick={() => setActive(toggleFaqIndex(active, item.id))}
+              className={` border-t cursor-pointer py-[15px]  ${
+                isLast ? "border-b" : ""
+              }`}
+            >
+              <div className="flex items-center  justify-between">
+                <p className="text-[#2A2343] text-[16px] lg:text-[24px] font-semibold">
+                  {item.question}
+                </p>
+                {isOpen ? (
+                  <div className="w-[29px] cursor-pointer">
+                    <Image
+                      width={207}
+                      height={107}
+                      className="object-cover"
+                      alt=""
+                      src={"/minus.svg"}
+                    />
+                  </div>
+                ) : (
+                  <div className="w-[29px] cursor-pointer">
+                    <Image
+                      width={207}
+                      height={107}
+                      className="object-cover"
+                      alt=""
+                      src={"/plus.svg"}
+                    />
+                  </div>
+                )}
               </div>
-            ) : (
-              <div className="w-[29px] cursor-pointer">
-                <Image
-                  width={207}
-                  height={107}
-                  className="object-cover"
-                  alt=""
-                  src={"/plus.svg"}
-                />
-              </div>
-            )}
-          </div>
-          {active === 1 && (
-            <>
-              <p className="pb-3 text-[#4A576A] pt-3 text-[16px]">
-                Easily buy Bitcoin within minutes with GBP, EUR, USD or your
-                local currency. CaPeerBara supports various popular payment
-                methods, including Visa, Mastercard, and ApplePay credit cards.
-                To get started, check out our latest guide on how to buy Bitcoin
-                on CaPeerBara. Want to buy, sell, or hold other coins that are
-                gaining traction in the crypto ecosystem? Check out the
-                following free resources to kick-start your journey today:
-              </p>
-              <div className="flex cursor-pointer">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy BTC</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy USDT</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy ETH</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy DOT</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy SOL</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy Doge</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy XRP</p>
-              </div>
-            </>
-          )}
-        </div>
-        <div
-          onClick={() => {
-            if (active === 2) {
-              setActive(0);
-            } else {
-              setActive(2);
-            }
-          }}
-          className=" border-t cursor-pointer  py-[15px]  "
-        >
-          <div className="flex items-center  justify-between">
-            <p className="text-[#2A2343] text-[16px] lg:text-[24px] font-semibold">
-              How do I buy Bitcoin on CaPeerBara?
-            </p>
-            {active === 2 ? (
-              <div className="w-[29px] cursor-pointer">
-                <Image
-                  width={207}
-                  height={107}
-                  className="object-cover"
-                  alt=""
-                  src={"/minus.svg"}
-                />
-              </div>
-            ) : (
-              <div className="w-[29px] cursor-pointer">
-                <Image
-                  width={207}
-                  height={107}
-                  className="object-cover"
-                  alt=""
-                  src={"/plus.svg"}
-                />
-              </div>
-            )}
-          </div>
-          {active === 2 && (
-            <>
-              <p className="pb-3 text-[#4A576A] pt-3 text-[16px]">
-                Easily buy Bitcoin within minutes with GBP, EUR, USD or your
-                local currency. CaPeerBara supports various popular payment
-                methods, including Visa, Mastercard, and ApplePay credit cards.
-                To get started, check out our latest guide on how to buy Bitcoin
-                on CaPeerBara. Want to buy, sell, or hold other coins that are
-                gaining traction in the crypto ecosystem? Check out the
-                following free resources to kick-start your journey today:
-              </p>
-              <div className="flex cursor-pointer">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy BTC</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy USDT</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy ETH</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy DOT</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy SOL</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy Doge</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy XRP</p>
-              </div>
-            </>
-          )}
-        </div>
-        <div
-          onClick={() => {
-            if (active === 3) {
-              setActive(0);
-            } else {
-              setActive(3);
-            }
-          }}
-          className=" border-t cursor-pointer py-[15px]  "
-        >
-          <div className="flex items-center  justify-between">
-            <p className="text-[#2A2343] text-[16px] lg:text-[24px] font-semibold">
-              Where is CaPeerBara based?
-            </p>
-            {active === 3 ? (
-              <div className="w-[29px] cursor-pointer">
-                <Image
-                  width={207}
-                  height={107}
-                  className="object-cover"
-                  alt=""
-                  src={"/minus.svg"}
-                />
-              </div>
-            ) : (
-              <div className="w-[29px] cursor-pointer">
-                <Image
-                  width={207}
-                  height={107}
-                  className="object-cover"
-                  alt=""
-                  src={"/plus.svg"}
-                />
-              </div>
-            )}
-          </div>
-          {active === 3 && (
-            <>
-              <p className="pb-3 text-[#4A576A] pt-3 text-[16px]">
-                Easily buy Bitcoin within minutes with GBP, EUR, USD or your
-                local currency. CaPeerBara supports various popular payment
-                methods, including Visa, Mastercard, and ApplePay credit cards.
-                To get started, check out our latest guide on how to buy Bitcoin
-                on CaPeerBara. Want to buy, sell, or hold other coins that are
-                gaining traction in the crypto ecosystem? Check out the
-                following free resources to kick-start your journey today:
-              </p>
-              <div className="flex cursor-pointer">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy BTC</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy USDT</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy ETH</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy DOT</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy SOL</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy Doge</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy XRP</p>
-              </div>
-            </>
-          )}
-        </div>
-        <div
-          onClick={() => {
-            if (active === 4) {
-              setActive(0);
-            } else {
-              setActive(4);
-            }
-          }}
-          className=" border-t cursor-pointer  py-[15px]  "
-        >
-          <div className="flex items-center  justify-between">
-            <p className="text-[#2A2343] text-[16px] lg:text-[24px] font-semibold">
-              What products does CaPeerBara provide?
-            </p>
-            {active === 4 ? (
-              <div className="w-[29px] cursor-pointer">
-                <Image
-                  width={207}
-                  height={107}
-                  className="object-cover"
-                  alt=""
-                  src={"/minus.svg"}
-                />
-              </div>
-            ) : (
-              <div className="w-[29px] cursor-pointer">
-                <Image
-                  width={207}
-                  height={107}
-                  className="object-cover"
-                  alt=""
-                  src={"/plus.svg"}
-                />
-              </div>
-            )}
-          </div>
-          {active === 4 && (
-            <>
-              <p className="pb-3 text-[#4A576A] pt-3 text-[16px]">
-                Easily buy Bitcoin within minutes with GBP, EUR, USD or your
-                local currency. CaPeerBara supports various popular payment
-                methods, including Visa, Mastercard, and ApplePay credit cards.
-                To get started, check out our latest guide on how to buy Bitcoin
-                on CaPeerBara. Want to buy, sell, or hold other coins that are
-                gaining traction in the crypto ecosystem? Check out the
-                following free resources to kick-start your journey today:
-              </p>
-              <div className="flex cursor-pointer">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy BTC</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy USDT</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy ETH</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy DOT</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy SOL</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy Doge</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy XRP</p>
-              </div>
-            </>
-          )}
-        </div>
-        <div
-          onClick={() => {
-            if (active === 5) {
-              setActive(0);
-            } else {
-              setActive(5);
-            }
-          }}
-          className=" border-t cursor-pointer border-b py-[15px]  "
-        >
-          <div className="flex items-center  justify-between">
-            <p className="text-[#2A2343] text-[16px] lg:text-[24px] font-semibold">
-              How do I buy Bitcoin on CaPeerBara?
-            </p>
-            {active === 5 ? (
-              <div className="w-[29px] cursor-pointer">
-                <Image
-                  width={207}
-                  height={107}
-                  className="object-cover"
-                  alt=""
-                  src={"/minus.svg"}
-                />
-              </div>
-            ) : (
-              <div className="w-[29px] cursor-pointer">
-                <Image
-                  width={207}
-                  height={107}
-                  className="object-cover"
-                  alt=""
-                  src={"/plus.svg"}
-                />
-              </div>
-            )}
-          </div>
-          {active === 5 && (
-            <>
-              <p className="pb-3 text-[#4A576A] pt-3 text-[16px]">
-                Easily buy Bitcoin within minutes with GBP, EUR, USD or your
-                local currency. CaPeerBara supports various popular payment
-                methods, including Visa, Mastercard, and ApplePay credit cards.
-                To get started, check out our latest guide on how to buy Bitcoin
-                on CaPeerBara. Want to buy, sell, or hold other coins that are
-                gaining traction in the crypto ecosystem? Check out the
-                following free resources to kick-start your journey today:
-              </p>
-              <div className="flex cursor-pointer">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy BTC</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy USDT</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy ETH</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy DOT</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy SOL</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy Doge</p>
-              </div>
-              <div className="flex cursor-pointer py-2">
-                <p className="text-[#6A7489] text-[16px] border-b">Buy XRP</p>
-              </div>
-            </>
-          )}
-        </div>
+              {isOpen && (
+                <>
+                  <p className="pb-3 text-[#4A576A] pt-3 text-[16px]">
+                    {item.answer}
+                  </p>
+                  {item.links.map((link, linkIndex) => (
+                    <div
+                      key={link}
+                      className={
+                        linkIndex === 0
+                          ? "flex cursor-pointer"
+                          : "flex cursor-pointer py-2"
+                      }
+                    >
+                      <p className="text-[#6A7489] text-[16px] border-b">
+                        {link}
+                      </p>
+                    </div>
+                  ))}
+                </>
+              )}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
